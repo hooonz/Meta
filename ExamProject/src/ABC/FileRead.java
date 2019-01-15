@@ -15,4 +15,15 @@ public class FileRead {
 		int result = count.count(bufferedreader);
 		return result;
 	}
+
+	public String fileread(int input) throws IOException {
+		String path = "D:/Test/test.txt";
+		File file = new File(path);
+		Count count = new Count();
+		FileReader filereader = new FileReader(file);
+		BufferedReader bufferedreader = new BufferedReader(filereader);
+		int result = count.count(bufferedreader);
+		String str = String.valueOf(result);
+		return str;
+	}
 }

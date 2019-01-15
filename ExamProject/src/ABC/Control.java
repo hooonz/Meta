@@ -27,6 +27,8 @@ public class Control {
 	}
 
 	public void FileToFile() throws IOException {
-
+		int result = fileRead.fileread();
+		String str = String.valueOf(result);
+		fileSave.Files(str);
 	}
 }
