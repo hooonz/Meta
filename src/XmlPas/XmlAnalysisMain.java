@@ -15,7 +15,7 @@ public class XmlAnalysisMain {
 
 public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
 	File basefile = new File("C:\\Users\\cpy\\Desktop\\XmlFileExam\\T_BASEFILE_TB.xml");
-//	InputSource is = new InputSource(new FileReader(basefile));
+//	InputSource is  = new InputSource(new FileReader(basefile));
 	Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(basefile);
 	XmlAnalysis name = new XmlAnalysis();
 	name.xmlReader(document);
