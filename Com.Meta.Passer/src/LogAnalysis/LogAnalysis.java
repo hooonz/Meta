@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class LogAnalysis {
 			.compile("([0-9.]{8} [0-9:]{8}).*?(eclipse.galileo.bean.thread-[0-9]{8}).*?(##galileo_bean end).*?");
 	Pattern esbId = Pattern.compile("(eclipse.galileo.bean.thread-[0-9]{8}).*?(IF_[0-9a-z-_]{41,44})");
 	Pattern callTime = Pattern.compile("(eclipse.galileo.bean.thread-[0-9]{8}).*?(#galileo call time:[0-9]{3,4})");
-	Pattern length = Pattern.compile("(eclipse.galileo.bean.thread-[0-9]{8}).*?(Content-Length:[0-9]{3,5})");
+	Pattern length = Pattern.compile("(eclipse.galileo.bean.thread-[0-9]{8}).*?Content-Length:([0-9]{3,5})");
 	String str = "";
 	File file = new File("C:/Users/Hoonz/Desktop/galileo.log");
 	Date startDate = new Date();
@@ -94,7 +95,7 @@ public class LogAnalysis {
 			}
 
 		}
-
+		Collections.sort(arr);
 		for (LogVo log : arr) {
 			stringbuffer.append(log.toString() + "\n");
 

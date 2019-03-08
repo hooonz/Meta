@@ -1,6 +1,6 @@
 package LogAnalysis;
 
-public class LogVo {
+public class LogVo implements Comparable<LogVo> {
 private String start;
 private String esbId;
 private String length;
@@ -71,8 +71,13 @@ private String end;
 @Override
 public String toString() {
 	return start + ", " + end + ", " + esbId + ", " + length
-			+ ", beforeMarshaling=" + beforeMarshaling + ", " + Marshalling + ", "
+			+ ", " + beforeMarshaling + ", " + Marshalling + ", "
 			+ invokingGalileo + ", " + server ;
+}
+@Override
+public int compareTo(LogVo o) {
+	
+	return start.compareTo(o.getStart()) ;
 }
 
 }
